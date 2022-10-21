@@ -3,7 +3,26 @@ import ApiCall from '../components/ApiCall'; //importation de notre composant
 import { Outlet, Link } from "react-router-dom";
 function Layout(){
     return (
-        <ApiCall/>
+        <>
+        <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/test">Test</Link>
+          </li>
+          <li>
+            <Link to="/afficher">afficher</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Outlet />
+        </>
     )
 }
 export default Layout;

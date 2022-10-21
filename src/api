@@ -2,25 +2,55 @@ d2f2a1ef3260ceb4b63aa6bf03c1e9f9
 
 https://rebrickable.com//api/v3/lego/sets//?key=d2f2a1ef3260ceb4b63aa6bf03c1e9f9
 
+
   fetch('https://rebrickable.com//api/v3/lego/sets//?key=d2f2a1ef3260ceb4b63aa6bf03c1e9f9')
   .then((response) => response.json())
   .then((data) => console.log(data));
 
-
-
-
-export default function App(){
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Layout/>}>
-        <Route index element={<Home/>}/>
-        <Route path='contact' element={<Contact/>}/>
-        <Route path='*' element={<NoPage/>}/>
-        </Route>
-      </Routes>
-    </BrowserRouter>
-
-     <ApiCall/>
-
      https://www.w3schools.com/react/react_router.asp
+
+     <ul>
+     {items.map(item => (
+         <li key={item.set_num}>
+             Numero du set : {item.set_num} Nom du set : {item.name} Nombre de pièce :{item.num_parts}
+         </li>
+     ))}
+ </ul>
+
+
+import React, {useState, useEffect  } from "react";
+function Afficher(){
+    const [inputVal, setVal] = useState('');
+    const [searchResult, setSearchResult] = useState();
+
+    function onInputChange(evt) {
+        setVal(evt.target.value);
+        console.log(searchResult);
+      }
+
+    useEffect(() => {
+        var i;
+        const search = async (value) => {
+          const response = await fetch(
+            `https://rebrickable.com//api/v3/lego/sets/${value}/?key=d2f2a1ef3260ceb4b63aa6bf03c1e9f9`
+          );
+            console.log(`https://rebrickable.com//api/v3/lego/sets/${value}/?key=d2f2a1ef3260ceb4b63aa6bf03c1e9f9`);
+      
+          if (!searchResult) {
+            const data = await response.json().then((result) =>{console.log(result)}, (result)=>{i = result});
+            setSearchResult(i);
+          }
+        }
+      
+        if (inputVal) {
+          search(inputVal);
+        }
+      }, [inputVal])
+      return (
+        <div>
+        <p>Nom du set : </p>
+        <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
+        </div>
+      )
+}
+export default Afficher;

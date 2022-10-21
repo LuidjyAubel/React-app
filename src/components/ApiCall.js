@@ -27,14 +27,19 @@ function ApiCall(){
         return <div>Chargement...</div>
     }else{
         return (
-        <ul>
-            {items.map(item => (
-                <li key={item.set_num}>
-                    Numero du set : {item.set_num} Nom du set : {item.name} Nombre de pièce :{item.num_parts}
-                </li>
-            ))}
-        </ul>
-        );
-}
-}
+            <div>
+                {items.map(item => (
+                <div key={item.set_num}>
+                <p>Numero du set : {item.set_num}</p>
+                <p>Nom du set : {item.name}</p>
+                <p>Nombre de pièce : {item.num_parts}</p>
+                <p>Année : {item.year}</p>
+                <img src={item.set_img_url}/>
+                </div>
+                ))}
+            </div>
+            );
+            }
+        }
+
 export default ApiCall;
