@@ -23,7 +23,7 @@ function Test(){
 return(
     <div>
     <p>Ceci est la page de test</p>
-    {items.map(item => (<a href="">{item.name}</a>))}
+    {items.map(item => (<a href={item.set_url}>{item.name}</a>))}
     </div>
 )
 }

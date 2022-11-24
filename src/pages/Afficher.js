@@ -1,7 +1,8 @@
 import React, {useState, useEffect  } from "react";
 function Afficher(){
     const [inputVal, setVal] = useState('');
-    const [searchResult, setSearchResult] = useState(undefined);
+    const [searchResult, setSearchResult] = useState("");
+    const [isLoaded, SetIsLoaded] = useState(false);
 
     function onInputChange(evt) {
         setVal(evt.target.value);
@@ -26,6 +27,12 @@ function Afficher(){
         return(
             <div>
             <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
+            <h1>Affichage du set n°{searchResult.set_num}</h1>
+            <a href={searchResult.set_url} target="_blank">{searchResult.name}</a>
+            <p>Nom du set : {searchResult.name}</p>
+            <p>Nombre de Pièce : {searchResult.num_parts}</p>
+            <p>Annèe : {searchResult.year}</p>
+            <img src={searchResult.set_img_url}/>
            </div>
         )
 }
