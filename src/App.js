@@ -11,9 +11,6 @@ import Test from './pages/Test';
 import Afficher from './pages/Afficher';
 
 function App() {
-  /*fetch('https://rebrickable.com//api/v3/lego/sets//?key=d2f2a1ef3260ceb4b63aa6bf03c1e9f9')
-  .then((response) => response.json())
-  .then((data) => console.log(data));*/
 
   return (
     <BrowserRouter>

@@ -1,4 +1,3 @@
-import ApiCall from "../components/ApiCall";
 import React, {useState, useEffect} from "react";
 function Test(){
     const [items, setItems] = useState([]);
