@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
+import Item from "./Item";
 
 function ApiCall(){
     const [items, setItems] = useState([]);
@@ -28,15 +29,8 @@ function ApiCall(){
     }else{
         return (
             <div>
-                {items.map(item => (
-                <div key={item.set_num}>
-                <p>Numero du set : {item.set_num}</p>
-                <p>Nom du set : {item.name}</p>
-                <p>Nombre de pièce : {item.num_parts}</p>
-                <p>Année : {item.year}</p>
-                <img src={item.set_img_url}/>
-                </div>
-                ))}
+                <h1>Affichage des set lego</h1>
+                <Item items={items}/>
             </div>
             );
             }
