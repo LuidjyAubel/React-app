@@ -1,11 +1,18 @@
 import React, {useState, useEffect} from "react";
+import Fuse from "fuse.js";
 function Test(){
+    const [inputVal, setVal] = useState("");
     const [items, setItems] = useState([]);
     const [isLoaded, SetIsLoaded] = useState(false);
     const [error, setError] = useState(null);
-    console.log(error);
+
+    function onInputChange(evt) {
+        setVal(evt.target.value);
+        //console.log(searchResult);
+      }
+
     useEffect(() =>{
-        fetch('https://rebrickable.com/api/v3/lego/sets//?key=d2f2a1ef3260ceb4b63aa6bf03c1e9f9')
+        fetch('https://rebrickable.com//api/v3/lego/sets//?key=d2f2a1ef3260ceb4b63aa6bf03c1e9f9')
         .then(response => response.json())
         .then(
             (result) => {
@@ -19,11 +26,32 @@ function Test(){
         )
     }, [])
 
-return(
-    <div>
-    <p>Ceci est la page de test</p>
-    {items.map(item => (<a href={item.set_url}>{item.name}</a>))}
-    </div>
-)
+    const test = items.map(item => (item.name));
+    const options = {
+        includeScore: true,
+        isCaseSensitive: false,
+        minMatchCharLength: 3
+      }
+      
+      const fuse = new Fuse(test, options)
+      
+      const result = fuse.search(inputVal);
+      console.log(result);
+      console.log(test);
+
+      if(result[0]){
+        return(
+            <div>
+                <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
+                <p>{result[0].item}</p>
+            </div>
+        )
+      }else{
+        return(
+            <div>
+            <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
+            </div>
+        )
+      }
 }
 export default Test;
