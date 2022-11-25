@@ -25,25 +25,29 @@ function Test(){
             }
         )
     }, [])
-
-    const test = items.map(item => (item.name));
+    const test = items.map(item => ({name: item.name}));
     const options = {
         includeScore: true,
         isCaseSensitive: false,
-        minMatchCharLength: 3
+        minMatchCharLength: 3,
+        keys: ['name']
       }
-      
-      const fuse = new Fuse(test, options)
-      
-      const result = fuse.search(inputVal);
+    const fuse = new Fuse(test, options);
+    
+      const result = fuse.search(inputVal+"=scheme");
       console.log(result);
-      console.log(test);
+     console.log(test);
+      //console.log(items);
 
       if(result[0]){
         return(
             <div>
                 <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
-                <p>{result[0].item}</p>
+                <div class="item">
+            {result.map(item => (
+            <p>Nom du set : {item.item.name}</p>
+            ))}
+            </div>
             </div>
         )
       }else{
