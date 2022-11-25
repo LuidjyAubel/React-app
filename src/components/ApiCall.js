@@ -28,7 +28,7 @@ function ApiCall(){
         return <div>Chargement...</div>
     }else{
         return (
-            <div>
+            <div className="Principal">
                 <h1>Affichage des set lego</h1>
                 <Item items={items}/>
             </div>

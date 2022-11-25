@@ -25,7 +25,8 @@ function Afficher(){
       )
 
         return(
-            <div>
+          <div>
+            <div className="Principal">
             <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
             <h1>Affichage du set n°{searchResult.set_num}</h1>
             <a href={searchResult.set_url} target="_blank">{searchResult.name}</a>
@@ -33,6 +34,11 @@ function Afficher(){
             <p>Nombre de Pièce : {searchResult.num_parts}</p>
             <p>Annèe : {searchResult.year}</p>
             <img src={searchResult.set_img_url}/>
+           </div>
+           <footer>
+                <p>Author: Luidjy Aubel</p>
+                <p>Author: Luidjy Aubel</p>
+            </footer>
            </div>
         )
 }

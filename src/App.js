@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import de nos pages
 import Home from './pages/Home';
+import LegoList from './pages/LegoList'
 import NoPage from './pages/NoPage';
 import Layout from './pages/Layout';
 import Contact from './pages/Contact';
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout/>}>
         <Route index element={<Home/>}/>
+        <Route path='legolist' element={<LegoList/>}/>
         <Route path='test' element={<Test/>}/>
         <Route path='afficher' element={<Afficher/>}/>
         <Route path='contact' element={<Contact/>}/>

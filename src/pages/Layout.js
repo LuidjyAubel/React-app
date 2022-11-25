@@ -5,11 +5,16 @@ function Layout(){
         <>
         <nav>
         <ul>
+          <li className="title">Motify
+          </li>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/test">Test</Link>
+            <Link to="/legolist">Liste Lego</Link>
+          </li>
+          <li>
+            <Link to="/test">Recherche</Link>
           </li>
           <li>
             <Link to="/afficher">afficher</Link>
