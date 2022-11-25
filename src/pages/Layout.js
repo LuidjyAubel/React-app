@@ -22,6 +22,9 @@ function Layout(){
           <li>
             <Link to="/contact">Contact</Link>
           </li>
+          <li>
+            <Link to="/book">list</Link>
+          </li>
         </ul>
       </nav>
 

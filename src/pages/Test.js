@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Fuse from "fuse.js";
-import Counter from "../components/Counter";
+import AddBookmark from "../containers/AddBookmark";
+import BookmarkList from "../containers/BookmarkList";
 function Test() {
     const [inputVal, setVal] = useState(undefined);
     const [items, setItems] = useState([]);
@@ -48,7 +49,7 @@ function Test() {
                     {result.map(item => (
                         <div>
                         <p key={item.item.name}>Nom du set : {item.item.name}</p>
-                        <p><Counter item={item.item.name}/></p>
+                        <AddBookmark/>
                         </div>
                     ))}
                 </div>
