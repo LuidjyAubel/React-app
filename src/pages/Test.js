@@ -58,6 +58,7 @@ function Test() {
         return (
             <div>
                 <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
+
                 <footer>
                     <p>Author: Luidjy Aubel</p>
                     <p>API rebrickable</p>
