@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Fuse from "fuse.js";
+import Counter from "../components/Counter";
 function Test() {
     const [inputVal, setVal] = useState(undefined);
     const [items, setItems] = useState([]);
@@ -35,8 +36,8 @@ function Test() {
     const fuse = new Fuse(test, options);
 
     const result = fuse.search(inputVal + "=scheme");
-    console.log(result);
-    console.log(test);
+    //console.log(result);
+    //console.log(test);
     //console.log(items);
 
     if (result) {
@@ -45,7 +46,10 @@ function Test() {
                 <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
                 <div class="item">
                     {result.map(item => (
+                        <div>
                         <p key={item.item.name}>Nom du set : {item.item.name}</p>
+                        <p><Counter item={item.item.name}/></p>
+                        </div>
                     ))}
                 </div>
                 <footer>
