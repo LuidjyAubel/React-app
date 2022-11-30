@@ -20,10 +20,10 @@ function Layout(){
             <Link to="/afficher">afficher</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/book">Favoris</Link>
           </li>
           <li>
-            <Link to="/book">list</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </nav>

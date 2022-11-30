@@ -21,8 +21,8 @@ function App() {
         <Route path='legolist' element={<LegoList/>}/>
         <Route path='test' element={<Test/>}/>
         <Route path='afficher' element={<Afficher/>}/>
-        <Route path='contact' element={<Contact/>}/>
         <Route path='book' element={<Book/>}/>
+        <Route path='contact' element={<Contact/>}/>
         <Route path='*' element={<NoPage/>}/>
         </Route>
       </Routes>
