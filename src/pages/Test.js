@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Fuse from "fuse.js";
+import { useSelector, useDispatch } from 'react-redux'
+import { addFavorite, removeFavorite } from '../features/favorites';
 function Test() {
     const [inputVal, setVal] = useState(undefined);
     const [items, setItems] = useState([]);
     const [isLoaded, SetIsLoaded] = useState(false);
     const [error, setError] = useState(null);
 
+    const favorites = useSelector((state) => state.favorites.value);
+    const dispatch = useDispatch();
+
     function onInputChange(evt) {
         setVal(evt.target.value);
-        //console.log(searchResult);
     }
 
     useEffect(() => {
@@ -38,7 +42,7 @@ function Test() {
     //console.log(result);
     //console.log(test);
     //console.log(items);
-    //let a = result.map(items)
+    console.log(favorites);
     if (result) {
         return (
             <div className="Principal">
@@ -50,6 +54,12 @@ function Test() {
                             <p>Nom du set : {item.item.name}</p>
                             <p>Nombre de pièce : {item.item.num_parts}</p>
                             <p>Annèe : {item.item.year}</p>
+                            {!favorites.includes(parseInt(item.item.set_num)) &&
+                                <button type="primary" onClick={() => dispatch(addFavorite(item.item.set_num))}>Add to favorites</button>
+                            }
+                            {favorites.includes(parseInt(item.item.set_num)) &&
+                                <button type="primary" onClick={() => dispatch(removeFavorite(item.item.set_num))}>Remove favorites</button>
+                            }
                             <a href={item.item.set_url}>{item.item.name}</a>
                             <img src={item.item.set_img_url} alt={item.item.name}></img>
                             <p></p>

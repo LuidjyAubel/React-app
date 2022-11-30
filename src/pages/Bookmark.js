@@ -1,12 +1,10 @@
 import React from "react";
-import { Counter } from "../features/counter/Counter";
 
-const Book = React.memo(() => {
+const Book = (props) => {
     return (
       <div>
-        <Counter></Counter>
       </div>
     );
-  });
+  };
 
   export default Book;
