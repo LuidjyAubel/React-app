@@ -1,6 +1,5 @@
 import React from "react";
 import { render, Render } from "@testing-library/react";
-import Counter from "./NewBookmark";
 import "../style.css";
 
 function Item({items}){

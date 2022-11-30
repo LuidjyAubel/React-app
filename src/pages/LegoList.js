@@ -1,6 +1,5 @@
 import React from "react";
 import ApiCall from '../components/ApiCall'; //importation de notre composant
-import Counter from "../components/NewBookmark";
 function LegoList(){
 return(
     <div>

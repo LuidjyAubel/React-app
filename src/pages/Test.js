@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Fuse from "fuse.js";
-import AddBookmark from "../containers/AddBookmark";
-import BookmarkList from "../containers/BookmarkList";
 function Test() {
     const [inputVal, setVal] = useState(undefined);
     const [items, setItems] = useState([]);
@@ -27,7 +25,7 @@ function Test() {
                 }
             )
     }, [])
-    const test = items.map(item => ({ name: item.name }));
+    const test = items.map(item => ({ set_num: item.set_num, name: item.name, set_url: item.set_url, num_parts: item.num_parts, year: item.year, set_img_url: item.set_img_url }));
     const options = {
         includeScore: true,
         isCaseSensitive: false,
@@ -40,16 +38,21 @@ function Test() {
     //console.log(result);
     //console.log(test);
     //console.log(items);
-
+    //let a = result.map(items)
     if (result) {
         return (
             <div className="Principal">
                 <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
                 <div class="item">
                     {result.map(item => (
-                        <div>
-                        <p key={item.item.name}>Nom du set : {item.item.name}</p>
-                        <AddBookmark/>
+                        <div key={item.item.set_num}>
+                            <p>Numéro du set : {item.item.set_num}</p>
+                            <p>Nom du set : {item.item.name}</p>
+                            <p>Nombre de pièce : {item.item.num_parts}</p>
+                            <p>Annèe : {item.item.year}</p>
+                            <a href={item.item.set_url}>{item.item.name}</a>
+                            <img src={item.item.set_img_url} alt={item.item.name}></img>
+                            <p></p>
                         </div>
                     ))}
                 </div>
