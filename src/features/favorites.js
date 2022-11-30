@@ -7,12 +7,12 @@ export const favorites = createSlice({
   },
   reducers: {
     addFavorite: (state, id) => {
-      state.value.push(parseInt(id.payload));
+      state.value.push(id.payload);
       return state;
     },
 
     removeFavorite: (state, id) => {
-      state.value.splice(state.value.indexOf(parseInt(id.payload)), 1);
+      state.value.splice(state.value.indexOf(id.payload), 1);
       return state;
     }
   },

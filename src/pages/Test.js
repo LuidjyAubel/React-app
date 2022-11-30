@@ -47,18 +47,18 @@ function Test() {
         return (
             <div className="Principal">
                 <input type="text" placeholder="Search..." value={inputVal} onChange={onInputChange} />
-                <div class="item">
+                <div className="item">
                     {result.map(item => (
                         <div key={item.item.set_num}>
                             <p>Numéro du set : {item.item.set_num}</p>
                             <p>Nom du set : {item.item.name}</p>
                             <p>Nombre de pièce : {item.item.num_parts}</p>
                             <p>Annèe : {item.item.year}</p>
-                            {!favorites.includes(parseInt(item.item.set_num)) &&
-                                <button type="primary" onClick={() => dispatch(addFavorite(item.item.set_num))}>Add to favorites</button>
+                            {!favorites.includes(item.item.name) &&
+                                <button type="primary" onClick={() => dispatch(addFavorite(item.item.name))}>Add to favorites</button>
                             }
-                            {favorites.includes(parseInt(item.item.set_num)) &&
-                                <button type="primary" onClick={() => dispatch(removeFavorite(item.item.set_num))}>Remove favorites</button>
+                            {favorites.includes(item.item.name) &&
+                                <button type="primary" onClick={() => dispatch(removeFavorite(item.item.name))}>Remove favorites</button>
                             }
                             <a href={item.item.set_url}>{item.item.name}</a>
                             <img src={item.item.set_img_url} alt={item.item.name}></img>
