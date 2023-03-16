@@ -10,7 +10,6 @@ function Home() {
             <div><img class="logo" src={Logo}></img></div>
             <footer>
                 <p>Author: Luidjy Aubel</p>
-                <p>Author: Luidjy Aubel</p>
             </footer>
         </div>
     )
